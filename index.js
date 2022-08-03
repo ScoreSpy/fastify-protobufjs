@@ -9,7 +9,7 @@ function fastifyProtobuf(fastify, options, next) {
     const root = protobufjs.loadSync(protoloadPath)
     const Package = root.lookupType(messagePackage)
 
-    fastify.register(require('fastify-accepts-serializer'), {
+    fastify.register(require('@fastify/accepts-serializer'), {
         serializers: [
             {
                 regex: /^application\/x-protobuf$/,
@@ -35,6 +35,6 @@ function fastifyProtobuf(fastify, options, next) {
 
 
 module.exports = fp(fastifyProtobuf, {
-    fastify: '3.x',
+    fastify: '4.x',
     name: 'fastify-protobufjs'
 })
